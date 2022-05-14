@@ -1,7 +1,5 @@
-
-from flask import Flask, redirect, render_template, request
-import requests
-import json
+from flask import Flask, render_template, request
+import chatbot_backend as cb
 
 #flask index page initialisation
 
@@ -10,12 +8,15 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/get', methods=['POST','GET'])
-def chatbot_user_response():
-    if request.method == 'POST':
-        msg = request.form.get("usermsg")
-        print(msg)
-        
+@app.route("/get", methods=["GET","POST"])
+def chatbot_response():
+    if request.method == 'GET':
+        msg = request.form["msg"]
+        response_msg = cb.getResponse(msg)
+        return response_msg
+    else:
+        return render_template("index.html")
+
 #run server
 if __name__ == "__main__":
     app.run(debug=True)
