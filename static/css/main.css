@@ -1,67 +1,70 @@
 body {
     font-family: monospace;
   }
-  h1 {
-    background-color: #8080ff;
-    color: black;
-    display: inline-block;
-    font-size: 2em;
-    margin: 0;
-    padding: 10px;
-  }
-  #chatbox {
+
+#chatbox {
     margin-left: auto;
     margin-right: auto;
     width: 40%;
     margin-top: 60px;
   }
-  #userInput {
+
+#userInput {
     margin-left: auto;
     margin-right: auto;
     width: 40%;
     margin-top: 60px;
   }
-  #textInput {
+
+#textInput {
     width: 90%;
     border: none;
     border-bottom: 3px solid black;
     font-family: monospace;
     font-size: 17px;
   }
-  .userText {
+
+.userText {
     color: black;
     font-family: monospace;
-    font-size: 17px;
+    font-size: 15px;
     text-align: right;
     line-height: 30px;
   }
-  .userText span {
+
+.userText span {
     background-color: #e699ff;
     padding: 10px;
     border-radius: 2px;
   }
-  .botText {
+
+.botText {
     color: black;
     font-family: monospace;
-    font-size: 17px;
+    font-size: 15px;
     text-align: left;
     line-height: 30px;
   }
-  .botText span {
+
+.botText span {
     background-color: #ffdd99;
     padding: 10px;
     border-radius: 2px;
   }
-  #tidbit {
+
+#tidbit {
     position: absolute;
     bottom: 0;
     right: 0;
     width: 300px;
   }
-  .boxed {
+
+.boxed {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
     margin-top: 30px;
+    border-radius: 10px;
+    background-color: rgb(220, 245, 235);
     border: 1px solid rgb(149, 149, 149);
   }

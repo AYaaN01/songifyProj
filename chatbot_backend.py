@@ -1,6 +1,17 @@
 import requests
 import json
-import emotion_test as et #emotion tone analysis api
+import emotion_resp as et #emotion tone analysis api
+
+toneMap={
+    'Joy':'joy',
+    'Sadness':'sadness',
+    'Analytical':'neutral',
+    'Anger':'anger',
+    'Fear':'fear',
+    'Confident':'neutral',
+    'Tentative':'neutral',
+    'Neutral':'neutral'
+}
 
 def getResponse(msg):
     #getting the emotional analysis data

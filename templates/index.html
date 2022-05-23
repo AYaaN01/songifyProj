@@ -3,17 +3,17 @@
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
+    <script src="https://open.spotify.com/embed-playlist/iframe-api/v1" async></script>
 {% endblock head %}
 
 {% block body %}
 <div id='embed-iframe'></div>
   <div class="boxed">
+    <iframe style="border-radius:10px" src="https://open.spotify.com/embed/track/7Kohy4v3KLWfUXlv9N3feB?utm_source=generator" width="100%" height="80px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
     <div>
-        <form>
       <div id="chatbox">
         <p class="botText">
-          <span>Hi! I'm SongiFy your personal song recommedation buddy</span>
+            <span>Hi! I'm SongiFy your song recommedation buddy</span>
         </p>
       </div>
       <div id="userInput">
@@ -21,9 +21,7 @@
       </div>
     </form>
     </div>
-
-    <script>
-
+    <script>        
       function getBotResponse() {
         var rawText = $("#textInput").val();
         var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
@@ -46,14 +44,16 @@
         }
       });
 
+    /*
     window.onSpotifyIframeApiReady = (IFrameAPI) => {
         let element = document.getElementById('embed-iframe');
         let options = {
-            uri: 'spotify:episode:7makk4oTQel546B0PZlDM5'
+            uri: 'spotify:playlist:37i9dQZF1EIWkN17HuTXyC'
         };
         let callback = (EmbedController) => {};
         IFrameAPI.createController(element, options, callback);
-    };
+    };*/
 
     </script>
 {% endblock body %}
+
