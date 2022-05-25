@@ -16,7 +16,7 @@ toneMap={
 def getResponse(msg):
     #getting the emotional analysis data
     #emotion = et.getEmotion(msg)
-    
+    print(msg)
     # local api call to docker hosted chatbot
     url = 'http://localhost:8080/cakechat_api/v1/actions/get_response'
     chat_data = {
@@ -31,4 +31,4 @@ def getResponse(msg):
     json_data = json.loads(chat_response.text)
     response_chat_data = json_data['response']    
     
-    return str(response_chat_data)
+    return (response_chat_data)
