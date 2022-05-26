@@ -1,7 +1,7 @@
 import requests
 import json
 
-def getEmotion (chatUsermsg):
+def getEmotion(chatUsermsg):
 
 	API_key = "497065fecemsh8b0e44e0b37b243p123e35jsnfcfa89be8d14"
 	url = "https://ekman-emotion-analysis.p.rapidapi.com/ekman-emotion"
@@ -11,7 +11,7 @@ def getEmotion (chatUsermsg):
 			"language": "en",
 			"text": chatUsermsg
 		}
-		]
+	]
 	headers = {
 		"content-type": "application/json",
 		"Accept": "application/json",
