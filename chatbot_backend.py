@@ -4,13 +4,13 @@ import emotion_resp as et #emotion tone analysis api
 
 def getResponse(msg):
     #getting the emotional analysis data
-    #emotion_tone = et.getEmotion(msg)
+    emotion_tone = et.getEmotion(msg)
         
     # local api call to docker hosted chatbot
     url = 'http://localhost:8080/cakechat_api/v1/actions/get_response'
     chat_data = {
         'context': [msg],
-        'emotion': 'joy'
+        'emotion': emotion_tone
     }
     
     #getting the chat response 
