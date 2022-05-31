@@ -1,28 +1,43 @@
 body {
     font-family: monospace;
-  }
+}
 
 #chatbox {
     margin-left: auto;
     margin-right: auto;
     width: 40%;
     margin-top: 60px;
-  }
+}
 
 #userInput {
+    display: flex;
+    flex-direction: row;
     margin-left: auto;
     margin-right: auto;
     width: 40%;
     margin-top: 60px;
-  }
+}
 
 #textInput {
     width: 90%;
     border: none;
+    margin-left: auto;
+    margin-right: auto;
     border-bottom: 3px solid black;
     font-family: monospace;
     font-size: 17px;
-  }
+    flex: 1;
+}
+
+#buttonInput {
+    margin-left: 5px;
+    opacity: 0.5;
+    padding: 5px;
+    border-radius: 1px;
+    font-size: 17px;
+    font-family: monospace;
+    background-color: greenyellow;
+}
 
 .userText {
     color: black;
@@ -30,13 +45,13 @@ body {
     font-size: 15px;
     text-align: right;
     line-height: 30px;
-  }
+}
 
 .userText span {
     background-color: #e699ff;
     padding: 10px;
     border-radius: 2px;
-  }
+}
 
 .botText {
     color: black;
@@ -44,20 +59,20 @@ body {
     font-size: 15px;
     text-align: left;
     line-height: 30px;
-  }
+}
 
 .botText span {
     background-color: #ffdd99;
     padding: 10px;
     border-radius: 2px;
-  }
+}
 
 #tidbit {
     position: absolute;
     bottom: 0;
     right: 0;
     width: 300px;
-  }
+}
 
 .boxed {
     margin-left: auto;
@@ -67,4 +82,4 @@ body {
     border-radius: 10px;
     background-color: rgb(220, 245, 235);
     border: 1px solid rgb(149, 149, 149);
-  }
+}
