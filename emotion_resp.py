@@ -1,8 +1,17 @@
 import requests
 import json
 
-def getEmotion(chatUsermsg):
+toneMap = {
+    'joy':'joy',
+    'sadness':'sadness',
+    'no-emotion':'neutral',
+    'anger':'anger',
+    'fear':'fear',
+    'disgust':'neutral',
+    'surprise':'neutral'
+}
 
+def getEmotion(chatUsermsg):
 	API_key = "497065fecemsh8b0e44e0b37b243p123e35jsnfcfa89be8d14"
 	url = "https://ekman-emotion-analysis.p.rapidapi.com/ekman-emotion"
 	payload = [
@@ -21,5 +30,6 @@ def getEmotion(chatUsermsg):
 	response = requests.request("POST", url, json=payload, headers=headers)
 	emo_text_reply = json.loads(response.text)
 	emo_anlysis = emo_text_reply[0]['predictions'][0]['prediction']
-
-	return str(emo_anlysis)
+	tone = toneMap[emo_anlysis]
+ 
+	return tone

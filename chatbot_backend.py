@@ -2,28 +2,15 @@ import requests
 import json
 import emotion_resp as et #emotion tone analysis api
 
-toneMap={
-    'joy':'joy',
-    'sadness':'sadness',
-    'no-emotion':'neutral',
-    'anger':'anger',
-    'fear':'fear',
-    'disgust':'neutral',
-    'surprise':'neutral'
-}
-
 def getResponse(msg):
     #getting the emotional analysis data
-    emotion_tone = et.getEmotion(msg)
-    #print(msg)
-    tone = toneMap[emotion_tone]
-    #print(tone)
-    
+    #emotion_tone = et.getEmotion(msg)
+        
     # local api call to docker hosted chatbot
     url = 'http://localhost:8080/cakechat_api/v1/actions/get_response'
     chat_data = {
         'context': [msg],
-        'emotion': tone
+        'emotion': 'joy'
     }
     
     #getting the chat response 
@@ -34,5 +21,3 @@ def getResponse(msg):
     response_chat_data = json_data['response']    
     
     return (response_chat_data)
-
-print(getResponse("How are you"))

@@ -11,9 +11,10 @@ def index():
 
 @app.route("/get")
 def chatbot_response():
-    msg = request.args.get('usermsg')
-    response_msg = cb.getResponse(msg)      
-    return response_msg
+    msg = request.args.get('usermsg', type=str)
+    print(msg)
+    #response_msg = cb.getResponse(msg)      
+    return msg
     
 #run server
 if __name__ == "__main__":

@@ -3,7 +3,6 @@
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://open.spotify.com/embed-playlist/iframe-api/v1" async></script>
 {% endblock head %}
 
 {% block body %}
@@ -18,7 +17,6 @@
       </div>
       <div id="userInput">
         <input id="textInput" type="text" name="usermsg" placeholder="Enter message here..." />
-        <input id="buttonInput" type="submit" value="Send">
       </div>
     </div>
     <script>        

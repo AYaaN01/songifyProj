@@ -2,6 +2,7 @@ import requests
 import base64
 import datetime
 from urllib.parse import urlencode
+import random
 
 client_id = '1eaf1a5f9c7447bdbbb14523f507aeaa'
 client_secret = 'a354a0df358643e1884e3692593cb7a7'
@@ -84,8 +85,17 @@ class SpotifyAPI(object):
             return {}
         return print(r.json())
     
-spotify = SpotifyAPI(client_id, client_secret)     
-emotion_tone = {
-    'happy' 
+spotify = SpotifyAPI(client_id, client_secret) 
+
+genre_tone_map = {
+    'joy' : ['acoustic','dance','happy','party'],
+    'sadness':[],
+    'anger':[],
+    'fear':[],
+    'neutral':[]   
 }
-spotify.search(f"genre:{mood}")
+
+genre = random.choice(genre_tone_map['joy'])
+print(genre)
+
+spotify.search(f"genre:{genre}")
