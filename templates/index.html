@@ -9,49 +9,44 @@
 <div id='embed-iframe'></div>
   <div class="boxed">
     <iframe style="border-radius:10px" src="https://open.spotify.com/embed/track/7Kohy4v3KLWfUXlv9N3feB?utm_source=generator" width="100%" height="80px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-    <div>
-      <div id="chatbox">
-        <p class="botText">
-            <span>Hi! I'm SongiFy your song recommedation buddy</span>
-        </p>
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+              <div id="chatbox" class="border border-success">
+                  <p class="botText"><span>Hi! I'm SongiFy your song recommendation buddy</span></p>
+              </div>
+              <div id="userInput">
+                  <input id="textInput" class="form-control" type="text" name="msg" placeholder="Type Your Message Here">
+                  <input id="buttonInput" class="btn btn-success form-control" type="submit" value="Send">
+              </div>
+          </div>
       </div>
-      <div id="userInput">
-        <input id="textInput" type="text" name="usermsg" placeholder="Enter message here..." />
-      </div>
-    </div>
-    <script>        
-      function getBotResponse() {
-        var rawText = $("#textInput").val();
-        var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
-        $("#textInput").val("");
-        $("#chatbox").append(userHtml);
-        document
-          .getElementById("userInput")
-          .scrollIntoView({ block: "start", behavior: "smooth" });
-        $.get("/get", { msg: rawText }).done(function(data) {
-          var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+  
+  <script>
+      function getResponse() {
+          let userText = $("#textInput").val();
+          let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          $.get("/get", { msg: userText }).done(function(data) {
+          var botHtml = '<p class="botText"><span>' + data + '</span></p>';
           $("#chatbox").append(botHtml);
-          document
-            .getElementById("userInput")
-            .scrollIntoView({ block: "start", behavior: "smooth" });
-        });
-      }
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+  });
+  }
       $("#textInput").keypress(function(e) {
-        if (e.which == 13) {
-          getBotResponse();
-        }
+      //if enter key is pressed
+          if(e.which == 13) {
+              getResponse();
+          }
       });
-
-    /*
-    window.onSpotifyIframeApiReady = (IFrameAPI) => {
-        let element = document.getElementById('embed-iframe');
-        let options = {
-            uri: 'spotify:playlist:37i9dQZF1EIWkN17HuTXyC'
-        };
-        let callback = (EmbedController) => {};
-        IFrameAPI.createController(element, options, callback);
-    };*/
-
-    </script>
+      $("#buttonInput").click(function() {
+          getResponse();
+      });
+      </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  </div>
 {% endblock body %}
 
