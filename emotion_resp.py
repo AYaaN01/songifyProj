@@ -1,5 +1,6 @@
 import requests
 import json
+import spotify_api as sp
 
 toneMap = {
     'joy':'joy',
@@ -31,5 +32,5 @@ def getEmotion(chatUsermsg):
 	emo_text_reply = json.loads(response.text)
 	emo_anlysis = emo_text_reply[0]['predictions'][0]['prediction']
 	tone = toneMap[emo_anlysis]
-	print(tone)
 	return tone
+
